@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "../src/",
+  "sources": [
+    "index.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,MAAA;;EAAA,UAAA,GAAa;;EACb,MAAM,CAAC,OAAP,GAAiB,QAAA,CAAC,OAAD,CAAA;AACf,QAAA;IAAA,OAAA,GAAU,MAAM,CAAC,OAAP,IAAkB,OAAA,CAAQ,SAAR;IAC5B,OAAO,CAAC,MAAR,CAAe,YAAf,EAA6B,EAA7B,CACA,CAAC,OADD,CACS,SADT,EACoB,QAAA,CAAA,CAAA;aAClB;QAAA,GAAA,EAAK,QAAA,CAAC,GAAD,CAAA;AACH,cAAA;UAAA,GAAA,GAAM,YAAY,CAAC,OAAb,CAAqB,OAAA,GAAU,GAAV,GAAgB,GAArC;UACN,IAAyB,GAAzB;AAAA,mBAAO,IAAI,CAAC,KAAL,CAAW,GAAX,EAAP;;iBACA;QAHG,CAAL;QAIA,GAAA,EAAK,QAAA,CAAC,GAAD,EAAM,KAAN,CAAA;iBACH,YAAY,CAAC,OAAb,CAAqB,OAAA,GAAU,GAAV,GAAgB,GAArC,EAA0C,IAAI,CAAC,SAAL,CAAe,KAAf,CAA1C;QADG;MAJL;IADkB,CADpB;WAQA;EAVe;AADjB",
+  "sourcesContent": [
+    "moduleName = 'rs-storage'\r\nmodule.exports = (appName) ->\r\n  angular = window.angular or require 'angular'\r\n  angular.module 'rs-storage', []\r\n  .factory 'storage', ->\r\n    get: (key) ->\r\n      val = localStorage.getItem appName + ':' + key\r\n      return JSON.parse val if val\r\n      null\r\n    set: (key, value) ->\r\n      localStorage.setItem appName + ':' + key, JSON.stringify value\r\n  moduleName"
+  ]
+}
